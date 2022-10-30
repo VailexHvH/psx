@@ -8,13 +8,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Cleanup pre-installed tools 
-      run: | 
-             # This is a fix for https://github.com/actions/virtual-environments/issues/1918 
-             sudo rm -rf /usr/share/dotnet 
-             sudo rm -rf /opt/ghc 
-             sudo rm -rf "/usr/local/share/boost" 
-             sudo rm -rf "$AGENT_TOOLSDIRECTORY"
     - name: Download
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract
