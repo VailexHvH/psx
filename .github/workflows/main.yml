@@ -22,9 +22,5 @@ jobs:
       - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
       - name: Download Roblox Studio Launcher Beta
         run: Invoke-WebRequest https://cdn.discordapp.com/attachments/636999943906787338/1112667912331866122/RobloxStudioLauncherBeta_1.exe -OutFile $env:USERPROFILE\Desktop\RobloxStudioLauncherBeta_1.exe
-      - name: Chrome
-        run: |
-          reg add HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice /v ProgId /d ChromeHTML /f
-          reg add HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice /v ProgId /d ChromeHTML /f
       - name: Create Tunnel
         run: .\ngrok\ngrok.exe tcp 3389
