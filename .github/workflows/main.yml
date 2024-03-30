@@ -20,7 +20,5 @@ jobs:
       - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
       - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1
       - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
-      - name: Download Roblox Studio Launcher Beta
-        run: Invoke-WebRequest https://cdn.discordapp.com/attachments/636999943906787338/1112667912331866122/RobloxStudioLauncherBeta_1.exe -OutFile $env:USERPROFILE\Desktop\RobloxStudioLauncherBeta_1.exe
       - name: Create Tunnel
         run: .\ngrok\ngrok.exe tcp 3389
